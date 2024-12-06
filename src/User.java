@@ -1,7 +1,8 @@
 import java.util.UUID;
 
 abstract class User {
-    String userId;
+    private static int totalUsers;
+    private String userId;
     private String name;
     private String contactInfo;
 
@@ -17,8 +18,9 @@ abstract class User {
     }
 
     User(User other){
-
-        User(other.name, other.contactInfo);
+        this.userId = generateUniqueId();
+        this.name = other.name;
+        this.contactInfo = other.contactInfo;
     }
 
     String getContactInfo() {
@@ -37,12 +39,20 @@ abstract class User {
         this.name = name;
     }
 
-    String generateUniqueId() {
-        return UUID.randomUUID().toString();
+    String getUserId() {
+        return userId;
+    }
+
+    final String generateUniqueId() {
+        return "User-"+(++totalUsers);
+    }
+
+    public static int getTotalUsers()
+    {
+        return totalUsers;
     }
 
     abstract void displayDashboard();
 
     abstract boolean canBorrowBooks();
-
 }
