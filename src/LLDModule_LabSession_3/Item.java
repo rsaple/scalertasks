@@ -1,6 +1,6 @@
 package LLDModule_LabSession_3;
 
-public abstract class Item {
+public abstract class Item implements Comparable<Item> {
     private String id;
     private String name;
     private double price;
@@ -40,5 +40,9 @@ public abstract class Item {
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int compareTo(Item o) {
+        return this.name.compareTo(o.name);
     }
 }

@@ -1,6 +1,9 @@
 package LLDModule_LabSession_3;
 
-public class Electronics extends Item{
+import java.io.Serializable;
+import java.lang.annotation.ElementType;
+
+public class Electronics extends Item {
     private int warranty;
 
     public Electronics(String id, String name, double price, int quantity, int warranty) {
@@ -13,4 +16,5 @@ public class Electronics extends Item{
     public void setWarranty(int warranty) {
         this.warranty = warranty;
     }
+
 }
